@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Десерты на заказ</title>
+
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
 {% if categories %}
+    <div class="flex-container">
     {% for category in categories %}
-        <div>
-            <h3>{{ category.category_name }}</h3>
-            <img src="{{ category.photo.url }}"/>
+        <div class="flex-item">
+            <img src="{{ category.photo.url }}" width="400px" height="400px"/>
+            <p class="name-category">{{ category.category_name }}</p>
         </div>
     {% endfor %}
+    </div>
 {% endif %}
 
 </body>

@@ -1,0 +1,19 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flex-item {
+    padding-bottom: 10px;
+    margin-top: 25px;
+    width: 400px;
+    height: 430px;
+}
+
+.name-category {
+    font-size: 18px;
+    color: #3B3736;
+    text-align: center;
+    margin: 0;
+}
