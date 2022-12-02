@@ -4,7 +4,7 @@
     justify-content: space-around;
 }
 
-.flex-item {
+.flex-item-category {
     padding-bottom: 10px;
     margin-top: 25px;
     width: 400px;
@@ -16,4 +16,25 @@
     color: #3B3736;
     text-align: center;
     margin: 0;
+}
+
+.flex-item-dessert {
+    padding-bottom: 10px;
+    margin-top: 25px;
+    width: 400px;
+    height: 460px;
+}
+
+.name-dessert {
+    font-size: 18px;
+    color: #3B3736;
+    text-align: center;
+    margin: 0;
+}
+
+.price-dessert {
+    font-size: 14px;
+    color: #696969;
+    text-align: center;
+    margin-top: 0;
 }
