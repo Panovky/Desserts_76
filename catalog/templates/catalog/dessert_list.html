@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дессерты на заказ</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+{% if desserts %}
+    <div class="flex-container">
+    {% for dessert in desserts %}
+        <div class="flex-item-dessert">
+            <img src="{{ dessert.photo.url }}" width="400px" height="400px"/>
+            <p class="name-dessert">{{ dessert.dessert_name }}
+            <p class="price-dessert">{{ dessert.dessert_price }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+
+</body>
+</html>

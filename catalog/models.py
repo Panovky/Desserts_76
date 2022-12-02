@@ -17,7 +17,7 @@ class Filling(models.Model):
         """
          Returns the url to access a particular instance of MyModelName.
          """
-        return '{0} ({1})'.format(self.filling_id, self.filling_name)
+        return f'{self.filling_id}/'
 
     def __str__(self):
         """
@@ -41,10 +41,38 @@ class Category(models.Model):
         """
          Returns the url to access a particular instance of MyModelName.
          """
-        return '{0} ({1})'.format(self.category_id, self.category_name)
+        return f'{self.category_id}/'
 
     def __str__(self):
         """
         String for representing the MyModelName object (in Admin site etc.)
         """
         return self.category_name
+
+
+class Dessert(models.Model):
+
+    # Fields
+    dessert_id = models.AutoField(primary_key=True)
+    dessert_name = models.CharField(max_length=50)
+    dessert_description = models.CharField(max_length=500)
+    dessert_weight = models.FloatField()
+    dessert_price = models.IntegerField()
+    category_id = models.ForeignKey(Category, on_delete=models.PROTECT)
+    photo = models.ImageField(null=True, upload_to="images/")
+
+    # Metadata
+    class Meta:
+        ordering = ["dessert_name"]
+
+    def get_absolute_url(self):
+        """
+         Returns the url to access a particular instance of MyModelName.
+         """
+        return f'/desserts/{self.dessert_id}/'
+
+    def __str__(self):
+        """
+        String for representing the MyModelName object (in Admin site etc.)
+        """
+        return self.dessert_name

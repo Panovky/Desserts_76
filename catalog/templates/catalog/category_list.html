@@ -12,7 +12,7 @@
 {% if categories %}
     <div class="flex-container">
     {% for category in categories %}
-        <div class="flex-item">
+        <div class="flex-item-category" onclick="window.location.href='{{ category.get_absolute_url }}'">
             <img src="{{ category.photo.url }}" width="400px" height="400px"/>
             <p class="name-category">{{ category.category_name }}</p>
         </div>
