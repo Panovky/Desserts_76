@@ -38,3 +38,29 @@
     text-align: center;
     margin-top: 0;
 }
+
+#learn-more {
+
+}
+
+.button-learn-more {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+}
+
+#blm_1 {
+    background: #229ED9;
+    margin-top: 200px;
+}
+
+#blm_2 {
+    background: #25D366;
+    margin-top: 30px;
+}

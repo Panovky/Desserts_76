@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Десерты на заказ</title>
+{% extends "base_generic.html" %}
 
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-
-{% if categories %}
-    <div class="flex-container">
-    {% for category in categories %}
-        <div class="flex-item-category" onclick="window.location.href='{{ category.get_absolute_url }}'">
-            <img src="{{ category.photo.url }}" width="400px" height="400px"/>
-            <p class="name-category">{{ category.category_name }}</p>
+{% block content %}
+    {% if categories %}
+        <div class="flex-container">
+        {% for category in categories %}
+            <div class="flex-item-category" onclick="window.location.href='{{ category.get_absolute_url }}'">
+                <img src="{{ category.photo.url }}" width="400px" height="400px"/>
+                <p class="name-category">{{ category.category_name }}</p>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
-    </div>
-{% endif %}
-
-</body>
-</html>
+    {% endif %}
+{% endblock %}

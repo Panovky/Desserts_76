@@ -3,7 +3,6 @@ from django.views import generic
 from catalog.models import Filling, Category, Dessert
 
 
-# Create your views here.
 class FillingsView(generic.ListView):
     model = Filling
     context_object_name = 'fillings'
@@ -21,5 +20,12 @@ def desserts_view(request, category_id):
         request,
         'catalog/dessert_list.html',
         context={'desserts': queryset}
+    )
+
+def contacts_view(request):
+
+    return render(
+        request,
+        'catalog/learn_more.html'
     )
 
