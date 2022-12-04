@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Десерты на заказ</title>
-</head>
-<body>
+{% extends "base_generic.html" %}
 
-{% if fillings %}
-    {% for filling in fillings %}
-        <div>
-            <h3>{{ filling.filling_name }}</h3>
-            <p>{{ filling.filling_description }}</p>
-            <img src="{{ filling.photo.url }}"/>
-        </div>
-    {% endfor %}
-{% endif %}
-
-</body>
-</html>
+{% block content %}
+    {% if fillings %}
+        {% for filling in fillings %}
+            <div>
+                <h3>{{ filling.filling_name }}</h3>
+                <p>{{ filling.filling_description }}</p>
+                <a href="learn-more">Узнать подробнее</a>
+                <img src="{{ filling.photo.url }}"/>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
