@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    {% if dessert %}
+        <img src="{{ dessert.photo.url }}" />
+        <p>{{ dessert.dessert_name }}</p>
+        <p>{{ dessert.dessert_description }}</p>
+        <p>{{ dessert.dessert_weight }} г</p>
+        <p>{{ dessert.dessert_price }} р.</p>
+        <a href="learn-more">Узнать подробнее</a>
+    {% endif %}
+
+{% endblock %}

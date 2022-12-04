@@ -69,7 +69,7 @@ class Dessert(models.Model):
         """
          Returns the url to access a particular instance of MyModelName.
          """
-        return f'/desserts/{self.dessert_id}/'
+        return f'dessert-{self.dessert_id}/'
 
     def __str__(self):
         """
