@@ -4,7 +4,7 @@
     {% if desserts %}
         <div class="flex-container">
         {% for dessert in desserts %}
-            <div class="flex-item-dessert">
+            <div class="flex-item-dessert" onclick="window.location.href='{{ dessert.get_absolute_url }}'">
                 <img src="{{ dessert.photo.url }}" width="400px" height="400px"/>
                 <p class="name-dessert">{{ dessert.dessert_name }}
                 <p class="price-dessert">{{ dessert.dessert_price }} р.</p>

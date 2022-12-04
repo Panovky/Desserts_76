@@ -22,10 +22,19 @@ def desserts_view(request, category_id):
         context={'desserts': queryset}
     )
 
-def contacts_view(request):
 
+def contacts_view(request):
     return render(
         request,
         'catalog/learn_more.html'
     )
 
+
+def dessert_detail_view(request, dessert_id):
+    model = Dessert.objects.filter(dessert_id=dessert_id).first()
+
+    return render(
+        request,
+        'catalog/dessert_detail.html',
+        context={'dessert': model}
+    )
