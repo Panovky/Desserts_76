@@ -1,0 +1,9 @@
+{% extends "base_gallery.html" %}
+
+{% block content %}
+    {% if photos %}
+        {% for photo in photos %}
+            <img src="{{ photo.photo.url }}" width="400px" height="400px"/>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
