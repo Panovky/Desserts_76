@@ -12,20 +12,31 @@
 
 <body>
 
-    {% block header %}<header class="header">
-        <div>
-            <a href=""><img src="{% static 'images/logo.png' %}" width="200px" height="150px"/></a>
-            <a href="{% url 'categories' %}" >Десерты</a>
-            <a href="{% url 'fillings' %}" >Начинки</a>
-            <a href="" >Галерея</a>
-            <a href="" >Отзывы</a>
-            <a href="" >Оформить заказ</a>
-       </div>
-    </header>{% endblock %}
+    {% block header %}<div class="navbar">
+            <div class="container">
+                <div class="navbar_inner">
+                    <a href=""><img class="logo" src="{% static 'images/logo_foto.png' %}"/></a>
+                    <nav class="nav">
+                        <a class="nav_link" href="{% url 'categories' %}" >ДЕСЕРТЫ</a>
+                        <a class="nav_link" href="{% url 'fillings' %}" >НАЧИНКИ</a>
+                        <a class="nav_link" href="">ГАЛЕРЕЯ</a>
+                        <a class="nav_link" href="">ОТЗЫВЫ</a>
+                        <a class="nav_link" href="">ОФОРМИТЬ ЗАКАЗ</a>
+                    </nav>
+                </div>
+            </div>
+    </div>{% endblock %}
 
     {% block content %}{% endblock %}
 
-    {% block footer %}<footer></footer>{% endblock %}
+    {% block footer %}<footer class="footer">
+        <div class="container">
+            <div class="footer_content">
+                <p class="copyroght_title">©️Сopyright</p>
+                <p class="copyroght_subtitle">Торты на заказ - desserts_76</p>
+            </div>
+        </div>
+    </footer>{% endblock %}
 
 </body>
 </html>
