@@ -15,11 +15,11 @@
     {% block header %}<div class="navbar">
             <div class="container">
                 <div class="navbar_inner">
-                    <a href=""><img class="logo" src="{% static 'images/logo_foto.png' %}"/></a>
+                    <a href="{% url 'about_me' %}"><img class="logo" src="{% static 'images/logo_foto.png' %}"/></a>
                     <nav class="nav">
                         <a class="nav_link" href="{% url 'categories' %}" >ДЕСЕРТЫ</a>
                         <a class="nav_link" href="{% url 'fillings' %}" >НАЧИНКИ</a>
-                        <a class="nav_link" href="">ГАЛЕРЕЯ</a>
+                        <a class="nav_link" href="{% url 'gallery' %}">ГАЛЕРЕЯ</a>
                         <a class="nav_link" href="">ОТЗЫВЫ</a>
                         <a class="nav_link" href="">ОФОРМИТЬ ЗАКАЗ</a>
                     </nav>
