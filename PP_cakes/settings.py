@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     'gallery.apps.GalleryConfig',
     'about.apps.AboutConfig',
+    'reviews.apps.ReviewsConfig',
 ]
 
 MIDDLEWARE = [

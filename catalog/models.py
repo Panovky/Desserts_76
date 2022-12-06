@@ -6,7 +6,7 @@ class Filling(models.Model):
     filling_id = models.AutoField(primary_key=True)
     filling_name = models.CharField(max_length=50)
     filling_description = models.CharField(max_length=500)
-    photo = models.ImageField(null=True, upload_to="images/")
+    photo = models.ImageField(null=True, upload_to="images/fillings")
 
     class Meta:
         ordering = ["filling_name"]
@@ -19,10 +19,10 @@ class Filling(models.Model):
 
 
 class Category(models.Model):
-    # Fields
+
     category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(max_length=50)
-    photo = models.ImageField(null=True, upload_to="images/")
+    photo = models.ImageField(null=True, upload_to="images/categories")
 
     class Meta:
         ordering = ["category_name"]
@@ -42,7 +42,7 @@ class Dessert(models.Model):
     dessert_weight = models.FloatField()
     dessert_price = models.IntegerField()
     category_id = models.ForeignKey(Category, on_delete=models.PROTECT)
-    photo = models.ImageField(null=True, upload_to="images/")
+    photo = models.ImageField(null=True, upload_to="images/desserts")
 
     class Meta:
         ordering = ["dessert_name"]
