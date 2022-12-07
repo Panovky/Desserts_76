@@ -7,9 +7,10 @@
     {% if reviews %}
         {% for review in reviews %}
 
-            <img src="{{ review.user_photo.url }}" width="300px" height="300px">
+            <img src="{{ review.user_photo.url }}" width="100px" height="100px">
             <p>{{ review.user_firstname }} {{ review.user_lastname }}</p>
             <p>{{ review.review_description }}</p>
+            <p>{{ review.date }}</p>
 
             {% if review.photo_1.url != Null %}
                 <img src="{{ review.photo_1.url }}" width="400px" height="400px">
