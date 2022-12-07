@@ -21,13 +21,15 @@
                         <a class="nav_link" href="{% url 'fillings' %}" >НАЧИНКИ</a>
                         <a class="nav_link" href="{% url 'gallery' %}">ГАЛЕРЕЯ</a>
                         <a class="nav_link" href="{% url 'reviews' %}">ОТЗЫВЫ</a>
-                        <a class="nav_link" href="">ОФОРМИТЬ ЗАКАЗ</a>
+                        <a class="nav_link" href="{% url 'new-order' %}">ОФОРМИТЬ ЗАКАЗ</a>
                     </nav>
                 </div>
             </div>
     </div>{% endblock %}
 
-    {% block content %}{% endblock %}
+    {% block content %}
+        <div class="content"></div>
+    {% endblock %}
 
     {% block footer %}<footer class="footer">
         <div class="container">
