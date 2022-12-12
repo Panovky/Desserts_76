@@ -1,22 +1,18 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-import smtplib
-from django.utils import timezone
-from orders.models import Order
+from django.shortcuts import render, redirect
+from orders.telegram import send_message
 
 
 def make_new_order(request):
     if request.method == "POST":
-        order = Order()
-        order.user_firstname = request.POST.get("user_firstname")
-        order.user_lastname = request.POST.get("user_lastname")
-        order.date = timezone.now()
-        order.save()
 
-        server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-        server.login('', '')
-        server.sendmail('', '', "New order!")
-        server.quit()
+        user_firstname = request.POST.get("user_firstname")
+        user_lastname = request.POST.get("user_lastname")
+        user_phone = request.POST.get("user_phone")
+
+        message = '*НОВАЯ ЗАЯВКА ПЕРЕЗВОНИТЬ*' + '\n\n' + '*Имя:* ' + user_firstname + '\n' + '*Фамилия:* ' + \
+                  user_lastname + '\n' + '*Телефон:* ' + user_phone
+        send_message(message)
+
         return redirect('success')
     else:
         return render(
