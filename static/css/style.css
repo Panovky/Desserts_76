@@ -148,7 +148,7 @@ main {
 .about_title:after {
     width: 100px;
     height: 2px;
-    background: #3B3736;
+    background: #54504f;
     display: block;
     content: " ";
     position: absolute;
@@ -171,7 +171,13 @@ main {
     padding: 10px 8px;
     margin: 30px auto 10px;
 
-    color: #3B3736;
+    color: #54504f;
+}
+
+.about_foto img {
+    width: 380px;
+    height: 380px;
+    border: 2px solid #3B3736;
 }
 
 .about_link:hover {
@@ -187,13 +193,36 @@ main {
 
 .about_aside {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 15px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
 
-    padding: 80px 0 60px;
+    padding: 91px 0 60px;
+}
+.about_foto-aside {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
 }
 
+.about_foto-aside img {
+    padding-left: 10px;
+    width: 550px;
+    height: 380px;
+}
+
+.dots {
+    position: absolute;
+    top: 1100px;
+    padding-left: 630px;
+}
+
+.btn-swiper-prev {
+    position: absolute;
+}
+
+.btn-swiper-next {
+    position: absolute;
+}
 
 /*===========FILLINGS===========*/
 .fillings__inner {
@@ -240,9 +269,59 @@ main {
     transition: background-color 0.3s linear, color 0.3s linear;
 }
 
+.fillings__foto img {
+    width: 500px;
+    height: 340px;
+
+    border: 2px solid #3B3736;
+}
 
 
+/*===========GALLERY===========*/
+.gallery {
+    margin: 30px 0 30px;
+    position: relative;
+}
 
+.gallery__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.gallery_item {
+    display: block;
+    position: relative;
+}
+
+.gallery_item-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.75);
+    color: #c4b9b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    opacity: 0;
+}
+
+.gallery_item:hover .gallery_item-hover {
+    opacity: 1;
+
+    transition: opacity 0.2s linear;
+}
+
+.gallery_item img {
+    width: 400px;
+    height: 400px;
+}
 
 
 
@@ -294,10 +373,6 @@ main {
     color: #696969;
     text-align: center;
     margin-top: 0;
-}
-
-#learn-more {
-
 }
 
 .button-learn-more {
