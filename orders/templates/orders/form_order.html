@@ -1,18 +1,18 @@
 {% extends "base_orders.html" %}
 
 {% block content %}
-    <form method="POST" action="" enctype="multipart/form-data">
-        {% csrf_token %}
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
 
-        <br><label>Имя</label>
-        <br><input type="text" name="user_firstname" required/>
+            <br><label>Имя</label>
+            <br><input type="text" name="user_firstname" required/>
 
-        <br><label>Фамилия</label>
-        <br><input type="text" name="user_lastname" required/>
+            <br><label>Фамилия</label>
+            <br><input type="text" name="user_lastname" required/>
 
-        <br><label>Телефон</label>
-        <br><input type="text" name="user_phone" required/>
+            <br><label>Телефон</label>
+            <br><input type="text" name="user_phone" required/>
 
-        <br><input type="submit" value="Перезвоните мне" >
-    </form>
+            <br><input type="submit" value="Перезвоните мне" >
+        </form>
 {% endblock %}
