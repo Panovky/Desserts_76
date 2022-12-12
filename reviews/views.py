@@ -1,20 +1,11 @@
 from django.views import generic
-from reviews.models import Review
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
 from django.utils import timezone
+from reviews.models import Review
 from django.core.files.storage import FileSystemStorage
-import os
-from django.conf import settings
-
-upRoot = os.path.join(settings.MEDIA_ROOT, 'images/users_photos/')
-up_url = os.path.join(settings.MEDIA_URL, 'images/users_photos/')
-upRoot = upRoot.replace("\\", "/")
-
-pRoot = os.path.join(settings.MEDIA_ROOT, 'images/reviews/')
-p_url = os.path.join(settings.MEDIA_URL, 'images/reviews/')
-pRoot = pRoot.replace("\\", "/")
+from PP_cakes.settings import upRoot, pRoot, up_url, p_url
 
 
 class ReviewsView(generic.ListView):
