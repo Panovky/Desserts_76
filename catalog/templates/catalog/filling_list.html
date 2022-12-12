@@ -1,14 +1,22 @@
 {% extends "base_catalog.html" %}
 
 {% block content %}
-    {% if fillings %}
-        {% for filling in fillings %}
-            <div>
-                <h3>{{ filling.filling_name }}</h3>
-                <p>{{ filling.filling_description }}</p>
-                <a href="learn-more">Узнать подробнее</a>
-                <img src="{{ filling.photo.url }}"/>
-            </div>
-        {% endfor %}
-    {% endif %}
+    <div class="fillings">
+        {% if fillings %}
+            {% for filling in fillings %}
+                <div class="container">
+                    <div class="fillings__inner">
+                        <div class="fillings__info">
+                            <h3 class="fillings__title">{{ filling.filling_name }}</h3>
+                            <p class="fillings__subtitle">{{ filling.filling_description }}</p>
+                            <a class="fillings__link" href="learn-more">Узнать подробности</a>
+                        </div>
+                        <div class="fillings__foto">
+                            <img src="{{ filling.photo.url }}" width="500px" height="340px"/>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

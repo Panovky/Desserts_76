@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
 
@@ -9,13 +8,14 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <body>
+    <div class="wrapper">
 
-    {% block header %}<div class="navbar">
+        {% block header %}
+        <header class="navbar" id="navigation">
             <div class="container">
                 <div class="navbar_inner">
-                    <a href="{% url 'about_me' %}"><img class="logo" src="{% static 'images/logo_foto.png' %}"/></a>
+                    <a id="link_logo" href="{% url 'about_me' %}"><img class="logo" src="{% static 'images/logo_foto.png' %}"/></a>
                     <nav class="nav">
                         <a class="nav_link" href="{% url 'categories' %}" >ДЕСЕРТЫ</a>
                         <a class="nav_link" href="{% url 'fillings' %}" >НАЧИНКИ</a>
@@ -25,20 +25,26 @@
                     </nav>
                 </div>
             </div>
-    </div>{% endblock %}
+        </header>
+        {% endblock %}
 
-    {% block content %}
-        <div class="content"></div>
-    {% endblock %}
+        <main class="content">
+            {% block content %}
+            {% endblock %}
+        </main>
 
-    {% block footer %}<footer class="footer">
-        <div class="container">
-            <div class="footer_content">
-                <p class="copyroght_title">©️Сopyright</p>
-                <p class="copyroght_subtitle">Торты на заказ - desserts_76</p>
+        {% block footer %}
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_content">
+                    <p class="copyright_title">©️Сopyright</p>
+                    <p class="copyright_subtitle">Торты на заказ - desserts_76</p>
+                </div>
             </div>
-        </div>
-    </footer>{% endblock %}
+        </footer>
+        {% endblock %}
+    </div>
 
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
