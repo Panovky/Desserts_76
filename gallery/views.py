@@ -6,6 +6,6 @@ def photos_view(request):
 
     return render(
         request,
-        'catalog/category_list.html',
-        context={'photos': Photo}
+        'gallery/photo_list.html',
+        context={'photos': Photo.objects.all()}
     )

@@ -7,7 +7,7 @@ def fillings_view(request):
     return render(
         request,
         'catalog/filling_list.html',
-        context={'fillings': Filling}
+        context={'fillings': Filling.objects.all()}
     )
 
 
@@ -16,7 +16,7 @@ def categories_view(request):
     return render(
         request,
         'catalog/category_list.html',
-        context={'categories': Category}
+        context={'categories': Category.objects.all()}
     )
 
 
