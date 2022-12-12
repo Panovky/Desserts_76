@@ -1,25 +1,32 @@
 from django.shortcuts import render
-from django.views import generic
 from catalog.models import Filling, Category, Dessert
 
 
-class FillingsView(generic.ListView):
-    model = Filling
-    context_object_name = 'fillings'
+def fillings_view(request):
+
+    return render(
+        request,
+        'catalog/filling_list.html',
+        context={'fillings': Filling}
+    )
 
 
-class CategoriesView(generic.ListView):
-    model = Category
-    context_object_name = 'categories'
+def categories_view(request):
+
+    return render(
+        request,
+        'catalog/category_list.html',
+        context={'categories': Category}
+    )
 
 
 def desserts_view(request, category_id):
-    queryset = Dessert.objects.filter(category_id=category_id)
+    desserts = Dessert.objects.filter(category_id=category_id)
 
     return render(
         request,
         'catalog/dessert_list.html',
-        context={'desserts': queryset}
+        context={'desserts': desserts}
     )
 
 
@@ -31,10 +38,10 @@ def contacts_view(request):
 
 
 def dessert_detail_view(request, dessert_id):
-    model = Dessert.objects.filter(dessert_id=dessert_id).first()
+    dessert = Dessert.objects.filter(dessert_id=dessert_id).first()
 
     return render(
         request,
         'catalog/dessert_detail.html',
-        context={'dessert': model}
+        context={'dessert': dessert}
     )
