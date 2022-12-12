@@ -19,7 +19,7 @@
                     <a href="#" class="about_link">Фото десертов</a>
                 </div>
                 <div class="about_foto">
-                    <img src="{% static 'images/header_foto.png' %}" width="380px" height="380px"/>
+                    <img src="{% static 'images/header_foto.png' %}"/>
                 </div>
             </div>
 
@@ -33,11 +33,15 @@
                         и шаблонов для создания своих сладостей, любое Ваше желание по начинке и оформлению воплотимо!</p>
                     <a href="#" class="about_link aside_link">Узнать подробнее</a>
                 </div>
-                <div class="about_foto">
-                    <img src="{% static 'images/aside_foto1.jpg' %}" width="380px" height="380px"/>
-                </div>
-                <div class="about_foto">
-                    <img src="{% static 'images/aside_foto2.jpg' %}" width="380px" height="380px"/>
+                <div class="about_foto-aside swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/aside_foto1.jpg' %}" alt="Картинка"/>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/aside_foto2.jpg' %}" alt="Картинка"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

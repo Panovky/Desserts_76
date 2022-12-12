@@ -1,11 +1,17 @@
 {% extends "base_gallery.html" %}
 
 {% block content %}
-    <div class="container">
-        {% if photos %}
-            {% for photo in photos %}
-                <img src="{{ photo.photo.url }}" width="400px" height="400px"/>
-            {% endfor %}
-        {% endif %}
+    <div class="gallery">
+        <div class="container">
+            <div class="gallery__list">
+                {% if photos %}
+                    {% for photo in photos %}
+                        <a href="{{ photo.photo.url }}" class="gallery_item">
+                            <div class="gallery_item-hover">Посмотреть</div>
+                            <img src="{{ photo.photo.url }}" alt="Картинка"/></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}
