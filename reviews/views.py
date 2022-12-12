@@ -1,4 +1,3 @@
-from django.views import generic
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
@@ -8,9 +7,13 @@ from django.core.files.storage import FileSystemStorage
 from PP_cakes.settings import upRoot, pRoot, up_url, p_url
 
 
-class ReviewsView(generic.ListView):
-    model = Review
-    context_object_name = 'reviews'
+def reviews_view(request):
+
+    return render(
+        request,
+        'reviews/review_list.html',
+        context={'reviews': Review}
+    )
 
 
 def create_new_review(request):

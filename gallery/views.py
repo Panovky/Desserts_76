@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from django.views import generic
 from gallery.models import Photo
 
 
-class PhotosView(generic.ListView):
-    model = Photo
-    context_object_name = 'photos'
+def photos_view(request):
+
+    return render(
+        request,
+        'catalog/category_list.html',
+        context={'photos': Photo}
+    )
