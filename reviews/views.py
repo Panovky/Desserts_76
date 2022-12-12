@@ -12,7 +12,7 @@ def reviews_view(request):
     return render(
         request,
         'reviews/review_list.html',
-        context={'reviews': Review}
+        context={'reviews': Review.objects.all()}
     )
 
 
