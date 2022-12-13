@@ -2,7 +2,46 @@
 
 {% block content %}
 
-    <p onclick="window.location.href='new/'">Оставить отзыв</p>
+    <p>Оставить отзыв</p>
+
+    <div id="window-review">
+
+        <button type="button">х</button>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <br><label>Имя</label>
+            <br><input type="text" name="user_firstname" required/><span>*</span>
+
+            <br><label>Фамилия</label>
+            <br><input type="text" name="user_lastname" required/><span>*</span>
+
+            <br><label>Ваша фотография</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="user_photo"/>
+
+            <br><label>Отзыв</label>
+            <br><textarea rows="10" cols="45" name="review_description" required></textarea><span>*</span>
+
+            <br><label>Фото 1</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_1" />
+
+            <br><label>Фото 2</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_2" />
+
+            <br><label>Фото 3</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_3" />
+
+            <br><label>Фото 4</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_4" />
+
+            <br><label>Фото 5</label>
+            <br><input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_5" />
+
+            <br><button type="button">Отмена</button>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
 
     {% if reviews %}
         {% for review in reviews %}

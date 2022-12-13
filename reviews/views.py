@@ -1,5 +1,3 @@
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.shortcuts import render
 from django.utils import timezone
 from reviews.models import Review
@@ -9,14 +7,6 @@ from PP_cakes.settings import upRoot, pRoot, up_url, p_url
 
 def reviews_view(request):
 
-    return render(
-        request,
-        'reviews/review_list.html',
-        context={'reviews': Review.objects.all()}
-    )
-
-
-def create_new_review(request):
     if request.method == "POST":
         review = Review()
         review.user_firstname = request.POST.get("user_firstname")
@@ -26,39 +16,44 @@ def create_new_review(request):
         fs1 = FileSystemStorage(location=upRoot)
         fs2 = FileSystemStorage(location=pRoot)
 
-        filename = fs1.save(files['user_photo'].name, files['user_photo'])
-        review.user_photo = up_url.replace('/media', '')+filename
+        if 'user_photo' in files:
+            filename = fs1.save(files['user_photo'].name, files['user_photo'])
+            review.user_photo = up_url.replace('/media', '')+filename
+        else:
+            review.user_photo = '/images/avatar.jpg'
 
         review.review_description = request.POST.get("review_description")
         review.date = timezone.now()
 
-        if len(files) >= 2:
+        if 'photo_1' in files:
             filename = fs2.save(files['photo_1'].name, files['photo_1'])
             review.photo_1 = p_url.replace('/media', '') + filename
 
-        if len(files) >= 3:
+        if 'photo_2' in files:
             filename = fs2.save(files['photo_2'].name, files['photo_2'])
             review.photo_2 = p_url.replace('/media', '') + filename
 
-        if len(files) >= 4:
+        if 'photo_3' in files:
             filename = fs2.save(files['photo_3'].name, files['photo_3'])
             review.photo_3 = p_url.replace('/media', '') + filename
 
-        if len(files) >= 5:
+        if 'photo_4' in files:
             filename = fs2.save(files['photo_4'].name, files['photo_4'])
             review.photo_4 = p_url.replace('/media', '') + filename
 
-        if len(files) >= 6:
+        if 'photo_5' in files:
             filename = fs2.save(files['photo_5'].name, files['photo_5'])
             review.photo_5 = p_url.replace('/media', '') + filename
 
         review.save()
-        return HttpResponseRedirect(reverse('reviews'))
-    else:
-        return render(
-            request,
-            'reviews/form_review.html',
-        )
+
+    return render(
+        request,
+        'reviews/review_list.html',
+        context={'reviews': Review.objects.all()}
+    )
+
+
 
 
 
