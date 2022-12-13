@@ -4,15 +4,14 @@
         <form method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
 
-            <br><label>Имя</label>
-            <br><input type="text" name="user_firstname" required/>
+            <br><input type="text" name="user_firstname" placeholder="Имя" required/><span>*</span><br>
 
-            <br><label>Фамилия</label>
-            <br><input type="text" name="user_lastname" required/>
+            <br><input type="text" name="user_lastname" placeholder="Фамилия"/><br>
 
-            <br><label>Телефон</label>
-            <br><input type="text" name="user_phone" required/>
+            <br><input type="text" name="user_phone" placeholder="Телефон" required /><span>*</span><br>
 
-            <br><input type="submit" value="Перезвоните мне" >
+            <br><textarea rows="10" cols="45" name="order_description" placeholder="Пожелания к заказу"></textarea><br>
+
+            <br><button type="submit">Перезвоните мне</button>
         </form>
 {% endblock %}
