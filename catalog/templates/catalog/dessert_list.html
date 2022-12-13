@@ -2,14 +2,39 @@
 
 {% block content %}
     {% if desserts %}
-        <div class="flex-container">
-        {% for dessert in desserts %}
-            <div class="flex-item-dessert" onclick="window.location.href='{{ dessert.get_absolute_url }}'">
-                <img src="{{ dessert.photo.url }}" width="400px" height="400px"/>
-                <p class="name-dessert">{{ dessert.dessert_name }}
-                <p class="price-dessert">{{ dessert.dessert_price }} р.</p>
+
+
+{#        <div class="flex-container">#}
+{#        {% for dessert in desserts %}#}
+{#            <div class="flex-item-dessert" onclick="window.location.href='{{ dessert.get_absolute_url }}'">#}
+{#                <img src="{{ dessert.photo.url }}" width="400px" height="400px"/>#}
+{#                <p class="name-dessert">{{ dessert.dessert_name }}#}
+{#                <p class="price-dessert">{{ dessert.dessert_price }} р.</p>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#        </div>#}
+
+
+
+        <div class="category-list">
+            <div class="container">
+                <h3 class="category-list__title">Выберите торт</h3>
+                <div class="category-list__inner">
+                    {% for dessert in desserts %}
+                        <ul class="hover-effect-scale hover-effect-scale-dessert">
+                            <li>
+                                <img src="{{ dessert.photo.url }}" alt="Фото торта">
+                                <div class="dessert-item">
+                                    <p class="name-dessert">{{ dessert.dessert_name }}</p>
+                                    <p class="price-dessert">{{ dessert.dessert_price }} рублей</p>
+                                    <a onclick="window.location.href='{{ dessert.get_absolute_url }}'" href="#">Подробнее</a>
+                                </div>
+                            </li>
+                            <p class="name-dessert-under">{{ dessert.dessert_name }}</p>
+                        </ul>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
         </div>
     {% endif %}
 {% endblock %}

@@ -2,13 +2,23 @@
 
 {% block content %}
     {% if categories %}
-        <div class="flex-container">
-        {% for category in categories %}
-            <div class="flex-item-category" onclick="window.location.href='{{ category.get_absolute_url }}'">
-                <img src="{{ category.photo.url }}" width="400px" height="400px"/>
-                <p class="name-category">{{ category.category_name }}</p>
+        <div class="category-list">
+            <div class="container">
+                <h3 class="category-list__title">Выберите категорию</h3>
+                <div class="category-list__inner">
+                    {% for category in categories %}
+                        <ul class="hover-effect-scale">
+                            <li>
+                                <img src="{{ category.photo.url }}" alt="Фото категории">
+                                <div>
+                                    <p class="name-category ">{{ category.category_name }}</p>
+                                    <a onclick="window.location.href='{{ category.get_absolute_url }}'" href="#">Подробнее</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
         </div>
     {% endif %}
 {% endblock %}

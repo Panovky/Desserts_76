@@ -1,15 +1,19 @@
 {% extends "base_catalog.html" %}
 
 {% block content %}
-
     {% if dessert %}
-        <img src="{{ dessert.photo.url }}" />
-        <p>{{ dessert.dessert_name }}</p>
-        <p>{{ dessert.dessert_description }}</p>
-        <p>{{ dessert.dessert_weight }} г</p>
-        <p>{{ dessert.dessert_price }} р.</p>
-        <a href="learn-more">Узнать подробнее</a>
-        <p>text</p>
+        <div class="container">
+            <div class="dessert-detail">
+                <div class="dessert-image">
+                    <img src="{{ dessert.photo.url }}" />
+                </div>
+                <div class="dessert-info">
+                    <p class="dessert-info__dessert_name">{{ dessert.dessert_name }}</p>
+                    <p class="dessert-info__dessert_price">{{ dessert.dessert_price }} рублей - {{ dessert.dessert_weight }} грамм</p>
+                    <p class="dessert-info__dessert_description">{{ dessert.dessert_description }}</p>
+                    <a class="fillings__link dessert-link" href="learn-more">Узнать подробнее</a>
+                </div>
+            </div>
+        </div>
     {% endif %}
-
 {% endblock %}
