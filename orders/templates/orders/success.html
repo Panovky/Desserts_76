@@ -1,6 +1,18 @@
 {% extends "base_orders.html" %}
+{% load static %}
 
 {% block content %}
-    <p>Заявка успешно оформлена.</p>
-    <p>В ближайшее время с Вами свяжутся для уточнения деталей заказа.</p>
+    <div class="order-page">
+        <div class="order-background">
+            <img src="{% static 'images/background-order.jpg' %}" alt="Фон">
+            <div class="order-background_blur"></div>
+        </div>
+
+        <div class="container">
+            <div class="order-form order-form-success">
+                <p class="order-form-success__title">Заявка успешно оформлена!</p>
+                <p class="order-form-success__subtitle">В ближайшее время с Вами свяжутся для уточнения деталей заказа.</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

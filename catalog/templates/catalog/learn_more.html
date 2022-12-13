@@ -1,8 +1,18 @@
 {% extends "base_catalog.html" %}
+{% load static %}
 
 {% block content %}
-    <div id="learn-more">
-        <p class="button-learn-more" id="blm_1" onclick="window.location.href='https://t.me/+79011737890'">Написать в Telegram</p>
-        <p class="button-learn-more" id="blm_2" onclick="window.location.href='https://wa.clck.bar/79011737890'">Написать в WhatsApp</p>
+    <div class="learn-more-page">
+        <div class="learn-more-background">
+            <img src="{% static 'images/background-order.jpg' %}" alt="Фон">
+            <div class="learn-more-background_blur"></div>
+        </div>
+
+        <div class="container">
+            <div class="learn-more-page__inner" id="learn-more">
+                <p class="button-learn-more button-learn-more-telegram" id="blm_1" onclick="window.location.href='https://t.me/+79011737890'">Написать в Telegram</p>
+                <p class="button-learn-more button-learn-more-whatsapp" id="blm_2" onclick="window.location.href='https://wa.clck.bar/79011737890'">Написать в WhatsApp</p>
+            </div>
+        </div>
     </div>
 {% endblock %}
