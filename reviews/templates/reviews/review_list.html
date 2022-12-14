@@ -9,31 +9,40 @@
                 <form class="popup" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="review-person-info">
-                        <input type="text" name="user_firstname" placeholder="Имя" required/><span>*</span>
-                        <input type="text" name="user_lastname" placeholder="Фамилия" required/><span>*</span>
+                        <input type="text" name="user_firstname" placeholder="Имя" required/>
+                        <input type="text" name="user_lastname" placeholder="Фамилия" required/>
                     </div>
 
                     <div class="person-foto">
-                        <label>Ваша фотография</label>
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="user_photo"/>
+                        <label class="input-file">
+                            <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="user_photo"/>
+                            <span class="input-file-btn">Выберите аватар</span>
+                        </label>
                     </div>
 
                     <p class="review-text">
-                        <textarea rows="10" cols="45" name="review_description" placeholder="Отзыв" required></textarea><span>*</span>
+                        <textarea name="review_description" placeholder="Отзыв" required maxlength="500"></textarea><span>*</span>
                     </p>
 
                     <div class="review-foto">
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_1"/>
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_2"/>
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_3"/>
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_4"/>
-                        <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_5"/>
+                        <p class="review-foto__title">Загрузите фото дессерта:</p>
+                        <div class="review-foto__inner">
+                            <label class="input-file">
+                                <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_1"/>
+                                <span class="input-file-btn">Выберите фото</span>
+                            </label>
+
+                            <label class="input-file">
+                                <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_2"/>
+                                <span class="input-file-btn">Выберите фото</span>
+                            </label>
+                            {# <input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_3"/>#}
+                            {#<input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_4"/>#}
+                            {#<input type="file" multiple accept="image/jpeg, image/jpg, image/png" name="photo_5"/>#}
+                        </div>
                     </div>
 
-                    <div class="review-btns">
-                        <button type="submit">Отправить</button>
-                        <button type="button">Отмена</button>
-                    </div>
+                    <button class="review-btns" type="submit">Отправить</button>
                 </form>
             </div>
 
@@ -41,34 +50,38 @@
                 {% if reviews %}
                     {% for review in reviews %}
                         <div class="reviews-item">
-                            <div class="reviews-item__avatar">
-                                <img src="{{ review.user_photo.url }}">
+                             <div class="reviews-item__content">
+                                 <div class="reviews-item__avatar">
+                                     <img src="{{ review.user_photo.url }}">
+                                 </div>
+                                 <div class="reviews-item__info">
+                                     <p class="reviews-item__info__firstname">{{ review.user_firstname }} {{ review.user_lastname }}</p>
+                                     <p class="reviews-item__info__date">{{ review.date }}</p>
+                                     <p class="reviews-item__info__description">{{ review.review_description }}</p>
+                                 </div>
+                             </div>
+
+                            <div class="reviews-list__image">
+                                {% if review.photo_1.url != Null %}
+                                    <a href="{{ review.photo_1.url }}"><img src="{{ review.photo_1.url }}"></a>
+                                {% endif %}
+
+                                {% if review.photo_2.url != Null %}
+                                    <a href="{{ review.photo_2.url }}"><img src="{{ review.photo_2.url }}"></a>
+                                {% endif %}
                             </div>
-                            <div class="reviews-item__info">
-                                <p>{{ review.user_firstname }} {{ review.user_lastname }}</p>
-                                <p>{{ review.review_description }}</p>
-                                <p>{{ review.date }}</p>
-                            </div>
 
-                            {% if review.photo_1.url != Null %}
-                                <img src="{{ review.photo_1.url }}" width="400px" height="400px">
-                            {% endif %}
-
-                            {% if review.photo_2.url != Null %}
-                                <img src="{{ review.photo_2.url }}" width="400px" height="400px">
-                            {% endif %}
-
-                            {% if review.photo_3.url != Null %}
-                                <img src="{{ review.photo_3.url }}" width="400px" height="400px">
-                            {% endif %}
-
-                            {% if review.photo_4.url != Null %}
-                                <img src="{{ review.photo_4.url }}" width="400px" height="400px">
-                            {% endif %}
-
-                            {% if review.photo_5.url != Null %}
-                                <img src="{{ review.photo_5.url }}" width="400px" height="400px">
-                            {% endif %}
+{#                            {% if review.photo_3.url != Null %}#}
+{#                                <img src="{{ review.photo_3.url }}" width="400px" height="400px">#}
+{#                            {% endif %}#}
+{##}
+{#                            {% if review.photo_4.url != Null %}#}
+{#                                <img src="{{ review.photo_4.url }}" width="400px" height="400px">#}
+{#                            {% endif %}#}
+{##}
+{#                            {% if review.photo_5.url != Null %}#}
+{#                                <img src="{{ review.photo_5.url }}" width="400px" height="400px">#}
+{#                            {% endif %}#}
                         </div>
                     {% endfor %}
                 {% endif %}

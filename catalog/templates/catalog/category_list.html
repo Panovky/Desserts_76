@@ -11,8 +11,8 @@
                             <li>
                                 <img src="{{ category.photo.url }}" alt="Фото категории">
                                 <div>
-                                    <p class="name-category ">{{ category.category_name }}</p>
-                                    <a onclick="window.location.href='{{ category.get_absolute_url }}'" href="#">Подробнее</a>
+                                    <p class="name-category">{{ category.category_name }}</p>
+                                    <a class="category-btn-learn-more" onclick="window.location.href='{{ category.get_absolute_url }}'" href="#">Подробнее</a>
                                 </div>
                             </li>
                         </ul>
