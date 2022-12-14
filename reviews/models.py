@@ -11,9 +11,6 @@ class Review(models.Model):
     date = models.DateField()
     photo_1 = models.ImageField(null=True, blank=True, upload_to="images/reviews")
     photo_2 = models.ImageField(null=True, blank=True, upload_to="images/reviews")
-    photo_3 = models.ImageField(null=True, blank=True, upload_to="images/reviews")
-    photo_4 = models.ImageField(null=True, blank=True, upload_to="images/reviews")
-    photo_5 = models.ImageField(null=True, blank=True, upload_to="images/reviews")
 
     class Meta:
         ordering = ["date"]

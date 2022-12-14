@@ -33,18 +33,6 @@ def reviews_view(request):
             filename = fs2.save(files['photo_2'].name, files['photo_2'])
             review.photo_2 = p_url.replace('/media', '') + filename
 
-        if 'photo_3' in files:
-            filename = fs2.save(files['photo_3'].name, files['photo_3'])
-            review.photo_3 = p_url.replace('/media', '') + filename
-
-        if 'photo_4' in files:
-            filename = fs2.save(files['photo_4'].name, files['photo_4'])
-            review.photo_4 = p_url.replace('/media', '') + filename
-
-        if 'photo_5' in files:
-            filename = fs2.save(files['photo_5'].name, files['photo_5'])
-            review.photo_5 = p_url.replace('/media', '') + filename
-
         review.save()
 
     return render(
