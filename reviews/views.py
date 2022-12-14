@@ -20,7 +20,7 @@ def reviews_view(request):
             filename = fs1.save(files['user_photo'].name, files['user_photo'])
             review.user_photo = up_url.replace('/media', '')+filename
         else:
-            review.user_photo = '/images/avatar.jpg'
+            review.user_photo = '/images/placeholder.webp'
 
         review.review_description = request.POST.get("review_description")
         review.date = timezone.now()
