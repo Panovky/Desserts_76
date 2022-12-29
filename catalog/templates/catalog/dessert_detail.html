@@ -11,7 +11,7 @@
                     <p class="dessert-info__dessert_name">{{ dessert.dessert_name }}</p>
                     <p class="dessert-info__dessert_price">{{ dessert.dessert_price }} рублей - {{ dessert.dessert_weight }} грамм</p>
                     <p class="dessert-info__dessert_description">{{ dessert.dessert_description }}</p>
-                    <a class="fillings__link dessert-link" href="learn-more">Узнать подробнее</a>
+                    <a href="{% url 'new-order' %}" class="dessert-detail__link-order">Оформить заказ</a>
                 </div>
             </div>
         </div>
