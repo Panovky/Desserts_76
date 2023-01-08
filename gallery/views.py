@@ -1,11 +1,6 @@
-from django.shortcuts import render
+from django.views import generic
 from gallery.models import Photo
 
-
-def photos_view(request):
-
-    return render(
-        request,
-        'gallery/photo_list.html',
-        context={'photos': Photo.objects.all()}
-    )
+class PhotosView(generic.ListView):
+    model = Photo
+    context_object_name = 'photos'

@@ -1,47 +1,36 @@
-from django.shortcuts import render
+from django.views import generic
+from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 from catalog.models import Filling, Category, Dessert
 
 
-def fillings_view(request):
-
-    return render(
-        request,
-        'catalog/filling_list.html',
-        context={'fillings': Filling.objects.all()}
-    )
+class FillingsView(generic.ListView):
+    model = Filling
+    context_object_name = 'fillings'
 
 
-def categories_view(request):
-
-    return render(
-        request,
-        'catalog/category_list.html',
-        context={'categories': Category.objects.all()}
-    )
+class CategoriesView(generic.ListView):
+    model = Category
+    context_object_name = 'categories'
 
 
-def desserts_view(request, category_id):
-    desserts = Dessert.objects.filter(category_id=category_id)
+class DessertsView(generic.ListView):
+    model = Dessert
 
-    return render(
-        request,
-        'catalog/dessert_list.html',
-        context={'desserts': desserts}
-    )
-
-
-def contacts_view(request):
-    return render(
-        request,
-        'catalog/learn_more.html'
-    )
+    def get_context_data(self, **kwargs):
+        context = super(DessertsView, self).get_context_data(**kwargs)
+        context['desserts'] = Dessert.objects.filter(category_id=self.kwargs.get('category_id'))
+        return context
 
 
-def dessert_detail_view(request, dessert_id):
-    dessert = Dessert.objects.filter(dessert_id=dessert_id).first()
+class ContactsView(TemplateView):
+    template_name = 'catalog/learn_more.html'
 
-    return render(
-        request,
-        'catalog/dessert_detail.html',
-        context={'dessert': dessert}
-    )
+
+class DessertDetailView(DetailView):
+    model = Dessert
+
+    def get_context_data(self, **kwargs):
+        context = super(DessertDetailView, self).get_context_data(**kwargs)
+        context['dessert'] = Dessert.objects.filter(dessert_id=self.kwargs.get('pk')).first()
+        return context
