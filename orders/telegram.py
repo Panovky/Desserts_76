@@ -1,7 +1,7 @@
 import telepot
 
 token = '5892884887:AAGLooZZxTHYXhQLkYa1fFAc-frQfg04u00'
-my_id = 0
+my_id = 303659314
 telegramBot = telepot.Bot(token)
 
 
